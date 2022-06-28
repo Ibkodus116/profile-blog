@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Classic - Responsive Bootstrap 4.0 Template</title>
+    <!--
+Classic Template
+http://www.templatemo.com/tm-488-classic
+-->
+    <!-- load stylesheets -->
+    {% load static %}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+    <!-- Templatemo style -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <![endif]-->
+</head>
+
+<body>
+
+
+    <div class="tm-header">
+        <div class="container-fluid">
+            <div class="tm-header-inner">
+                <a href="#" class="navbar-brand tm-site-name">Classic</a>
+
+                <!-- navbar -->
+                <nav class="navbar tm-main-nav">
+
+                    <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse"
+                        data-target="#tmNavbar">
+                        &#9776;
+                    </button>
+
+                    <div class="collapse navbar-toggleable-sm" id="tmNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item active">
+                                <a href="index.html" class="nav-link">Home</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tm-home-img-container">
+        <img src="{% static 'img/tm-home-img.jpg' %}" alt="Image" class="hidden-lg-up img-fluid">
+    </div>
+
+    <section class="tm-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-xs-center">
+                    <h2 class="tm-gold-text tm-title">Introduction</h2>
+                    <p class="tm-subtitle">Suspendisse ut magna vel velit cursus tempor ut nec nunc. Mauris vehicula,
+                        augue in tincidunt porta, purus ipsum blandit massa.</p>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                    <div class="tm-content-box">
+                        <!-- <h4 class="tm-margin-b-20 tm-gold-text">About Odusanya Ibukun #1</h4>
+                                <p class="tm-margin-b-20">my Name is Odusanya Ibukun {{date}} I'm a python developer I'm a graduate of Osun State University... </p> -->
+                        <img src="{% static 'img/tm-img-310x180-1.jpg' %}" alt="Image" class="tm-margin-b-20 img-fluid">
+                        <h4 class="tm-margin-b-20 tm-gold-text">About {{ post.fname }} {{ post.lname }}</h4>
+                        <!-- <p class="tm-margin-b-20">my Name is {{ post.fname }} {{ post.lname }} {{ date }} I'm a {{ post.planguage }} developer I'm a graduate of {{ post.university }} {{ post.more }} {{ post.resume }} {{ post.mail }}</p> -->
+                        <p class="tm-margin-b-20">my Name is {{ post.fname }} {{ post.lname }} I'm a {{ post.planguage
+                            }} developer I'm a graduate of {{ post.university }} my {{ post.mail }}</p>
+                        <a href='#' class="tm-btn text-uppercase">Read More</a>
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div> <!-- row -->
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enter your details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body mx-5">
+                            <form class="contact_form " method="POST" action="{% url 'form' %}">
+
+                                <!-- <h1>Enter your details</h1> -->
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="name@example.com">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <button type="button" class="btn btn-secondary">Submit</button>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- load JS files -->
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script><!-- jQuery (https://jquery.com/download/) -->
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap, http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script><!-- Bootstrap (http://v4-alpha.getbootstrap.com/) -->
+    
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{ enter }}
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        .contact_form {
+            width: 300px;
+            overflow: hidden;
+            margin: 70px auto;
+            padding-top: 10px;
+            padding: 10px 50px;
+            background: rgb(162, 162, 162);
+            border-radius: 15px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 38px;
+            font-family: 'Bree Serif', serif;
+        }
+        textarea {
+            border-radius: 10px;
+            width: 300px;
+            height: 150px;
+        }        
+        input{
+            width: 300px;
+            height: 30px;
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            padding-left: 8px;
+        }
+        button {
+            background-color: rgb(174, 9, 121);
+            border: none;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: black;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form class="contact_form" method="POST" action="{% url 'form' %}">
+        {% csrf_token %}
+        <h1>Enter your details</h1>
+    
+        <!-- <label for="email_address">Enter your Email address: </label><br>
+        <input type="email" id="email_address" name="email_address" placeholder="Enter your mail"><br> -->
+        
+        {{ enter }}<br><br>
+        <!-- <label for="message">Kindly leave a message:</label><br>
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Leave a Message"></textarea> <br> -->
+        <button>Submit</button>
+    
+      </form>
+</body>
+</html>
